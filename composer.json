@@ -1,0 +1,22 @@
+{
+    "name": "mundgold/svg-tag-unique-id",
+    "require": {
+        "statamic/cms": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mundgold\\SvgTagUniqueId\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Svg Tag Unique Id",
+            "description": "Svg Tag Unique Id addon"
+        },
+        "laravel": {
+            "providers": [
+                "Mundgold\\SvgTagUniqueId\\ServiceProvider"
+            ]
+        }
+    }
+}
