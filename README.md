@@ -1,23 +1,25 @@
-# Svg Tag Unique Id
+# SVG ID Prefixer Addon for Statamic
 
-> Svg Tag Unique Id is a Statamic addon that does something pretty neat.
+This Statamic addon extends the functionality of the original SVG tag by introducing a new attribute, `replace_ids="true"`. When this attribute is added to the SVG tag, the addon automatically prefixes all IDs within the SVG with a unique identifier, preventing conflicts with duplicate IDs from multiple embedded SVGs on a single page.
 
-## Features
+## Why Use This Addon?
 
-This addon does:
-
-- This
-- And this
-- And even this
+Avoid ID conflicts when embedding multiple SVGs on a single page. This addon provides a convenient solution to ensure unique IDs within SVG elements, enhancing compatibility and preventing unintended styling or scripting issues.
 
 ## How to Install
 
-You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
+You can run the following command from your project root:
 
 ``` bash
 composer require mundgold/svg-tag-unique-id
 ```
 
 ## How to Use
+Simply include the `replace_ids="true"` attribute in your Statamic SVG tag:
 
-Here's where you can explain how to use this wonderful addon.
+```
+{{ svg replace_ids="true" path="path/to/your/svg/file.svg" }}
+```
+
+## License
+This addon is open-sourced software licensed under the MIT license.
