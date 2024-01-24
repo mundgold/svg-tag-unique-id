@@ -2,6 +2,7 @@
 
 namespace Mundgold\SvgTagUniqueId\Tags;
 
+use Illuminate\Support\Str;
 use Statamic\Tags\Svg as BaseSvg;
 
 class Svg extends BaseSvg
@@ -19,7 +20,8 @@ class Svg extends BaseSvg
 
     protected function addFilenamePrefixToIds($svg)
     {
-        $filename = pathinfo($this->params->get('src'), PATHINFO_FILENAME);
+        $uniqPrefix = uniqid('svg_');
+        $svg = Str::of($svg)->remove('replace_ids="true"');
         $doc = new \DOMDocument();
         $doc->loadXML($svg);
 
@@ -28,7 +30,7 @@ class Svg extends BaseSvg
 
         foreach ($nodes as $node) {
             $oldId = $node->getAttribute('id');
-            $newId = $filename . '_' . $oldId;
+            $newId = $uniqPrefix . '_' . $oldId;
             $node->setAttribute('id', $newId);
 
             $clipPathNodes = $xpath->query('//*[@clip-path]');
