@@ -26,6 +26,7 @@ class Svg extends BaseSvg
         $doc->loadXML($svg);
 
         $xpath = new \DOMXPath($doc);
+        $xpath->registerNamespace('xlink', 'http://www.w3.org/1999/xlink');
         $nodes = $xpath->query('//*[@id]');
 
         foreach ($nodes as $node) {
