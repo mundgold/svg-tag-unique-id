@@ -2,7 +2,6 @@
     "name": "mundgold/svg-tag-unique-id",
     "license": "MIT",
     "description": "This Statamic 4+ addon extends the functionality of the original SVG tag by introducing a new attribute, replace_ids. When this attribute is added to the SVG tag, the addon automatically prefixes all IDs within the SVG with a unique identifier, preventing conflicts with duplicate IDs from multiple embedded SVGs on a single page",
-    "version": "1.0.1",
     "require": {
         "statamic/cms": "^4.0"
     },
