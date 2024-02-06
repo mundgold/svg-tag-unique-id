@@ -39,6 +39,20 @@ class Svg extends BaseSvg
                 $newClipPathValue = str_replace('url(#' . $oldId . ')', 'url(#' . $newId . ')', $clipPathValue);
                 $clipPathNode->setAttribute('clip-path', $newClipPathValue);
             }
+
+            $xlinkNodes = $xpath->query('//*[@xlink:href]');
+            foreach ($xlinkNodes as $xlinkNode) {
+                $xlinkValue = $xlinkNode->getAttribute('xlink:href');
+                $newXlinkValue = str_replace('#' . $oldId, '#' . $newId, $xlinkValue);
+                $xlinkNode->setAttribute('xlink:href', $newXlinkValue);
+            }
+
+            $fillNodes = $xpath->query('//*[@fill]');
+            foreach ($fillNodes as $fillNode) {
+                $fillValue = $fillNode->getAttribute('fill');
+                $newFillValue = str_replace('url(#' . $oldId . ')', 'url(#' . $newId . ')', $fillValue);
+                $fillNode->setAttribute('fill', $newFillValue);
+            }
         }
 
         return $doc->saveHTML();
