@@ -22,8 +22,8 @@ class Svg extends BaseSvg
     {
         $uniqPrefix = uniqid('svg_');
         $svg = Str::of($svg)->remove('replace_ids="true"');
-        $doc = new \DOMDocument();
-        $doc->loadXML($svg);
+        $doc = new \DOMDocument('1.0', 'UTF-8');
+        $doc->loadXML(html_entity_decode($svg));
 
         $xpath = new \DOMXPath($doc);
         $xpath->registerNamespace('xlink', 'http://www.w3.org/1999/xlink');
